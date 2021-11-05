@@ -1,0 +1,117 @@
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color-black, 0.8);
+  z-index: 50000;
+  transition: all .3s;
+  opacity: 0;
+  visibility: hidden;
+ 
+
+  &__content {
+    @include absCenter;
+    width: 75%;
+    background-color: $color-white;
+    box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+    z-index: 55000;
+    border-radius: 3px;
+    display: table;
+    overflow: hidden;
+    transform:translate(-50%,-50%) scale(.25);
+    transition: all .4s ease-in;
+
+    @include respond(tab-port) {
+      display: block;
+    }
+  }
+  &__left {
+    
+    height:100%;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    
+
+    @include respond(tab-port) {
+      
+      flex-direction: row;
+      width: 100%;
+      height: 30%;
+
+    }
+
+    
+  }
+  &__right {
+    width: 66.66666666%;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 3rem 5rem;
+  }
+
+   
+  &:target{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content{
+    transform: translate(-50%,-50%) scale(1);
+      opacity: 1;
+      visibility: visible;
+
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 50%;
+    object-fit:fill;
+    overflow: hidden;
+
+
+
+
+    @include respond(tab-port)
+    {
+      height: auto;
+      width: 50%;
+      overflow-y: hidden;
+    }
+  }
+  &__text {
+    font-size: 1.4rem;
+    margin: 2rem 0 4rem 0;
+    column-count: 2;
+    column-gap: 4rem;
+    -moz-column-gap: 4rem;
+    column-rule: 1px solid $color-grey-light-2;
+    text-align: justify;
+    hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    -ms-column-count: 2;
+  }
+  &__close {
+    &:link,
+    &:visited{
+      color: $color-grey-dark;
+      position:absolute;
+      top: 0.5rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      text-decoration: none;
+      display: inline-block;
+
+    }
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
