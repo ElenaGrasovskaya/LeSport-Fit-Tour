@@ -20,6 +20,12 @@
       position: absolute;
       top: 7rem;
       left: 7rem;
+
+      @include respond(phone){
+        top: 3rem;
+        left: 3rem;
+  
+      }
     }
     &__text-box {
       position: absolute;
